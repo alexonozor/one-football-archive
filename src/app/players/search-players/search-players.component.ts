@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {PlayersService} from '../../services/players/players.service';
-import {finalize, catchError} from 'rxjs/operators';
+import { PlayersService } from '../../services/players/players.service';
+import { finalize, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-search-players',
   templateUrl: './search-players.component.html',
   styleUrls: ['./search-players.component.scss'],
-  encapsulation:  ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 
 })
 export class SearchPlayersComponent implements OnInit {
@@ -37,16 +37,16 @@ export class SearchPlayersComponent implements OnInit {
         return of(err);
       })
     )
-    .subscribe((data) => {
-      if (data.active === 'false') {
-        this.error = `${data.id} is not available, Profile has been disabled.`;
-        return;
-      }
+      .subscribe((data) => {
+        if (data.active === 'false') {
+          this.error = `${data.id} is not available, Profile has been disabled.`;
+          return;
+        }
 
-      if (data.active === 'true') {
-        this.router.navigate(['profile', data['profile-id']]);
-      }
-    });
+        if (data.active === 'true') {
+          this.router.navigate(['profile', data['profile-id']]);
+        }
+      });
   }
 
 }
