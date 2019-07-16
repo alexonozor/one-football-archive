@@ -27,10 +27,11 @@ export class SearchPlayersComponent implements OnInit {
   }
 
   searchPlayer(searchId) {
-    if (searchId.trim().toLowerCase() === '') { return; }
+    this.searchId = searchId.trim().toLowerCase();
+    if (this.searchId === '') { return; }
 
     this.isSearching = true;
-    this.playerService.search(searchId).pipe(
+    this.playerService.search(this.searchId).pipe(
       finalize(() => this.isSearching = false),
       catchError(err => {
         this.error = `Player ${searchId} is not available`;
