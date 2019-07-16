@@ -1,0 +1,10 @@
+<form (submit)="searchPlayer(searchId)" fxLayout="column" fxLayoutAlign="space-around center mat-card">
+  <mat-form-field appearance="outline" style="width: 100%">
+    <input matInput placeholder="Search Player" [(ngModel)]="searchId" [ngModelOptions]="{standalone: true}">
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-hint *ngIf="error" class="danger">{{error}}</mat-hint>
+  </mat-form-field>
+</form>
+<div style="width: 30%">
+  <mat-progress-bar *ngIf="isSearching" mode="indeterminate"></mat-progress-bar>
+</div>

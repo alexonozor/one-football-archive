@@ -1,0 +1,174 @@
+<mat-toolbar fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
+  <span routerLink="" class="logo-setting">
+    <img src="https://s3.amazonaws.com/prod-heroku/external_greenhouse_job_boards/logos/000/009/874/resized/Onefootball__RGB_green_.png?1504086699" alt=""> 
+  </span>
+</mat-toolbar>
+
+
+<div *ngIf="($profile | async) as profileDate; else loading">
+  <div fxLayout="column" fxLayoutAlign="space-around center" ngClass.gt-xs="hero" ngClass.xs="mobile-hero">
+    <div ngClass.gt-xs="flex-container" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-between center"
+      fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
+      <div ngClass.gt-xs="profile-picture" ngClass.xs="mobile-profile-picture" fxFlex.gt-xs="50">
+        <img [src]="profileDate.profile.picture" [alt]="profileDate.id">
+      </div>
+      <div fxFlex="50">
+        <app-search-players></app-search-players>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div fxLayout="row" fxLayoutAlign="space-between start" fxLayout.xs="column" fxLayoutAlign.xs="space-around stretch"
+    ngClass.gt-xs="flex-container" fxLayoutGap.gt-xs="20px">
+    <div fxFlex.gt-sm="25" fxFlex.xm="100">
+      <mat-nav-list *ngFor="let profile of profileDate.profile | keyvalue">
+        <mat-list-item disableRipple="true" *ngIf="profile.key !== 'picture'">
+          <span matLine class="label">{{profile.key | titlecase}}</span>
+          <span class="value">{{profile.value |  titlecase}}</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+
+    <div fxFlex.gt-xs="75" fxFlex.gt-xs="100">
+      <div fxLayout="row wrap" fxLayoutAlign="space-around start" fxLayout.xs="column"
+        fxLayoutAlign.xs="space-around stretch" class="player-news" fxLayoutGap.gt-xs="20px">
+        <mat-card fxFlex>
+          <p mat-subheader>Attack</p>
+          <mat-divider></mat-divider>
+          <mat-nav-list>
+            <mat-list-item>
+              <span matLine class="label">Goals</span>
+              <span class="value">{{profileDate.stats.goals}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Other Goals</span>
+              <span class="value">{{profileDate.stats.otherGoals}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Goals From Inside Box</span>
+              <span class="value">{{profileDate.stats.goalsFromInsideBox}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Headed Goals</span>
+              <span class="value">{{profileDate.stats.headedGoals}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Right Foot Goals</span>
+              <span class="value">{{profileDate.stats.rightFootGoals}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Left Foot Goals</span>
+              <span class="value">{{profileDate.stats.leftFootGoals}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Short on Target</span>
+              <span class="value">{{profileDate.stats.shotsOnTarget}}</span>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-card>
+
+        <mat-card fxFlex>
+          <p mat-subheader>Team Play</p>
+          <mat-divider></mat-divider>
+          <mat-nav-list>
+            <mat-list-item>
+              <span matLine class="label">Assists</span>
+              <span class="value">{{profileDate.stats.assists}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Passes</span>
+              <span class="value">{{profileDate.stats.totalPasses}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Total Crosses</span>
+              <span class="value">{{profileDate.stats.totalCrosses}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Passing Accuracy</span>
+              <span class="value">{{profileDate.stats.passingAccuracy}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Minutes Played</span>
+              <span class="value">{{profileDate.stats.minutesPlayed}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Minutes PerGoal</span>
+              <span class="value">{{profileDate.stats.minutesPerGoal}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Starts</span>
+              <span class="value">{{profileDate.stats.starts}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Substitution Off</span>
+              <span class="value">{{profileDate.stats.substitutionOff}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Substitution On</span>
+              <span class="value">{{profileDate.stats.substitutionOn}}</span>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-card>
+      </div>
+
+      <div fxLayout="row wrap" fxLayoutAlign="space-around start" fxLayout.xs="column"
+        fxLayoutAlign.xs="space-around stretch" class="space-up-30" fxLayoutGap.gt-xs="20px">
+        <mat-card fxFlex>
+          <p mat-subheader>Defence </p>
+          <mat-divider></mat-divider>
+          <mat-nav-list>
+            <mat-list-item>
+              <span matLine class="label">Clearances</span>
+              <span class="value">{{profileDate.stats.clearances}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Aerial Duels Won</span>
+              <span class="value">{{profileDate.stats.aerialDuelsWon}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Duels Won</span>
+              <span class="value">{{profileDate.stats.duelsWon}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Interceptions</span>
+              <span class="value">{{profileDate.stats.interceptions}}</span>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-card>
+
+
+        <mat-card fxFlex>
+          <p mat-subheader>Discipline</p>
+          <mat-divider></mat-divider>
+          <mat-nav-list>
+            <mat-list-item>
+              <span matLine class="label">Yellow Card</span>
+              <span class="value">{{profileDate.stats.yellowCards}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Red Cards</span>
+              <span class="value">{{profileDate.stats.redCards}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Foul won</span>
+              <span class="value">{{profileDate.stats.foulsWon}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matLine class="label">Foul Conceded</span>
+              <span class="value">{{profileDate.stats.foulsConceded}}</span>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+    <div class="center-page container" fxLayout="column" fxLayoutAlign="space-around center">
+     <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
+    </div>
+</ng-template>
+

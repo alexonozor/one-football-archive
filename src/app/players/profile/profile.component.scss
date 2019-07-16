@@ -1,0 +1,58 @@
+.hero {
+  width: 100%;
+  height: 250px;
+  background: #2fba45;
+  color: #fff;
+}
+
+.mobile-hero {
+    width: 100%;
+    height: 380px;
+    background: #2fba45;
+    color: #fff;
+}
+
+.label {
+  font-weight: 200 !important;
+  font-size: small;
+}
+
+.value {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+
+.mat-card {
+  border-top: 2px solid #2fba45;
+}
+
+.flex-container {
+  width: 80%;
+  margin: 20px auto;
+  height: 100vh;
+}
+
+.flex-container-home {
+  width: 70%;
+  margin: 20px auto;
+}
+
+.mat-light-blue {
+  background-color: #81D4FA;
+  color: #fff;
+}
+
+.mobile-font {
+  font-size: 20px;
+}
+
+app-search-players {
+  input {
+    color: #fff;
+  }
+}
+
+.logo-setting {
+    padding-top: 6px;
+}
