@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "onefootball-man": {
+    "onefootball": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/onefootball-man",
+            "outputPath": "dist/onefootball",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "onefootball-man:build"
+            "browserTarget": "onefootball:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "onefootball-man:build:production"
+              "browserTarget": "onefootball:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "onefootball-man:build"
+            "browserTarget": "onefootball:build"
           }
         },
         "test": {
@@ -109,11 +109,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "onefootball-man:serve"
+            "devServerTarget": "onefootball:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "onefootball-man:serve:production"
+              "devServerTarget": "onefootball:serve:production"
             }
           }
         },
@@ -129,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "onefootball-man"
+  "defaultProject": "onefootball"
 }
